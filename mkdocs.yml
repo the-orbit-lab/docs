@@ -1,0 +1,75 @@
+site_name: Orbit Lab Documentation
+site_description: Official engineering documentation for Orbit Lab
+site_author: Orbit Lab
+
+repo_name: orbitlab-project/docs
+repo_url: https://github.com/orbitlab-project/docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+
+  features:
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+nav:
+  - Home: index.md
+
+  - Standards:
+      - standards/index.md
+      - Documentation Standard: standards/orbit-std-001-documentation-standard.md
+      - Identification Standard: standards/orbit-std-002-identification-standard.md
+      - File Naming Standard: standards/orbit-std-003-file-naming-standard.md
+
+  - Guides:
+      - guides/index.md
+      - Artifact Types: guides/artifact-types.md
+      - Documentation Workflow: guides/documentation-workflow.md
+
+  - Registers:
+      - registers/index.md
+      - Document Register: registers/document-register.md
+
+  - Templates:
+      - templates/index.md
+      - ADR: templates/adr-template.md
+      - Requirement: templates/requirement-template.md
+      - Test: templates/test-template.md
+      - Experiment: templates/experiment-template.md
+      - Interface: templates/interface-template.md
+      - Part: templates/part-template.md
