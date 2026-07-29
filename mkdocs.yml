@@ -1,9 +1,10 @@
 site_name: Orbit Lab Documentation
 site_description: Official engineering documentation for Orbit Lab
 site_author: Orbit Lab
+site_url: https://orbit-lab.github.io/docs/
 
-repo_name: orbitlab-project/docs
-repo_url: https://github.com/orbitlab-project/docs
+repo_name: orbit-lab/docs
+repo_url: https://github.com/orbit-lab/docs
 edit_uri: edit/main/docs/
 
 theme:
