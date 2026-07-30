@@ -1,256 +1,530 @@
-# ORBIT-STD-003 — Engineering Artifact Identification Standard
+# ORBIT-STD-003 — File Naming Standard
 
 ## Purpose
 
-This standard defines how Orbit Lab engineering artifacts are identified and named.
+This standard defines how files and directories are named across Orbit Lab repositories.
 
-The objective is to make each requirement, decision, test, experiment, interface and physical item easy to recognize, reference and trace.
+The objective is to keep engineering artifacts predictable, searchable and easy to identify without opening them.
 
-## Identifier format
+## General rules
 
-The standard identifier format is:
+File and directory names should:
 
-```text
-TYPE-SUBSYSTEM-NUMBER
-```
+* use lowercase letters;
+* use hyphens between words;
+* avoid spaces;
+* avoid accented characters;
+* avoid unnecessary abbreviations;
+* include the artifact identifier when applicable;
+* describe the content clearly;
+* remain stable after publication.
 
-Example:
-
-```text
-TEST-OBC-0001
-```
-
-Where:
-
-* `TEST` identifies the artifact type;
-* `OBC` identifies the responsible subsystem;
-* `0001` is a sequential number.
-
-Identifiers must be unique and must never be reused.
-
-## Project-wide artifacts
-
-Artifacts that apply to the entire Orbit Lab project may use `SYS` as the subsystem:
+Use:
 
 ```text
-ADR-SYS-0001
-REQ-SYS-0001
-RISK-SYS-0001
+adr-obc-0001-select-main-controller.md
 ```
 
-Orbit Lab standards use a separate format:
+Avoid:
 
 ```text
-ORBIT-STD-001
-ORBIT-STD-002
+ADR final.md
+controllerDecisionNEW.md
+document-2.md
+final-final-v2.md
 ```
 
-## Artifact types
+## Markdown documents
 
-| Code     | Artifact            | Main question                             |
-| -------- | ------------------- | ----------------------------------------- |
-| `ADR`    | Decision Record     | Why was this solution selected?           |
-| `REQ`    | Requirement         | What must the system satisfy?             |
-| `TEST`   | Verification Test   | Was a requirement satisfied?              |
-| `EXP`    | Experiment          | What are we trying to discover?           |
-| `IF`     | Interface Record    | How do two systems connect?               |
-| `PART`   | Designed Part       | What is this manufactured part?           |
-| `ASSY`   | Assembly Record     | Which parts form this assembly?           |
-| `COMP`   | Purchased Component | What is this selected component?          |
-| `PCB`    | Electronic Board    | What is this board and its revision?      |
-| `PROC`   | Procedure           | How is an operation repeated?             |
-| `RISK`   | Risk Record         | What can go wrong?                        |
-| `LOG`    | Engineering Log     | What happened during development?         |
-| `REPORT` | Engineering Report  | What was concluded?                       |
-| `MODEL`  | Engineering Model   | What system or phenomenon is represented? |
-| `DATA`   | Dataset             | What measurements are contained here?     |
-
-## Subsystem codes
-
-| Code   | Subsystem                                 |
-| ------ | ----------------------------------------- |
-| `SYS`  | Complete Orbit Lab system                 |
-| `OBC`  | On-Board Computer                         |
-| `FSW`  | Flight Software                           |
-| `ADCS` | Attitude Determination and Control System |
-| `EPS`  | Electrical Power System                   |
-| `COM`  | Communications                            |
-| `GS`   | Ground Station                            |
-| `PAY`  | Payload                                   |
-| `STR`  | Mechanical Structure                      |
-| `THM`  | Thermal System                            |
-| `SIM`  | Simulation                                |
-| `HIL`  | Hardware-in-the-Loop                      |
-| `GSE`  | Ground Support Equipment                  |
-| `ORB`  | Orbital Analysis                          |
-| `DOC`  | Documentation Infrastructure              |
-
-New subsystem codes must be documented before regular use.
-
-## Examples
-
-```text
-ADR-OBC-0001
-REQ-EPS-0002
-TEST-ADCS-0003
-EXP-COM-0001
-IF-OBC-EPS-0001
-PART-STR-0004
-COMP-OBC-0002
-RISK-SYS-0001
-```
-
-## Interface identifiers
-
-Interface records may contain both connected systems:
-
-```text
-IF-OBC-EPS-0001
-IF-OBC-COM-0001
-IF-FSW-GS-0001
-```
-
-The order should follow the primary direction of responsibility or data flow.
-
-## File naming
-
-Markdown filenames must use lowercase kebab-case.
-
-Format:
+Controlled engineering documents must follow:
 
 ```text
 identifier-short-title.md
 ```
 
-Examples:
+Example:
 
 ```text
 adr-obc-0001-select-rust.md
-req-obc-0001-watchdog-supervision.md
-test-adcs-0003-wheel-speed-stability.md
-if-obc-eps-0001-i2c-interface.md
-part-str-0004-lower-corner-bracket.md
 ```
 
-Avoid filenames such as:
-
-```text
-final-document.md
-new-test.md
-motor-good-version.md
-test-2.md
-final-final.step
-```
-
-## Physical revisions
-
-Mechanical parts, assemblies and electronic boards use revision letters:
-
-```text
-PART-STR-0004 Rev A
-PART-STR-0004 Rev B
-PCB-OBC-0001 Rev A
-```
-
-A revision is used when the artifact remains the same logical item but its design changes.
-
-A new identifier is required when the new item is not interchangeable with the previous one or serves a different function.
-
-## Document revisions
-
-Markdown documents use semantic document revisions:
-
-```text
-0.1.0
-0.2.0
-1.0.0
-```
-
-Recommended interpretation:
-
-* `0.1.0`: initial draft;
-* `0.x.0`: significant draft update;
-* `1.0.0`: first accepted version;
-* `1.0.x`: corrections that do not change meaning;
-* `1.x.0`: meaningful content changes.
-
-## Status values
-
-Recommended document statuses:
-
-* Draft
-* Proposed
-* Under Review
-* Accepted
-* Implemented
-* Verified
-* Rejected
-* Superseded
-* Deprecated
-* Cancelled
-
-Completed or obsolete artifacts must not be deleted solely to hide their history.
-
-## Common metadata
-
-Controlled Markdown documents should begin with front matter:
-
-```yaml
----
-id: TYPE-SUBSYSTEM-0000
-title: Document title
-status: Draft
-revision: 0.1.0
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-owner: Orbit Lab
-related_requirements: []
-related_decisions: []
-related_tests: []
-related_issues: []
----
-```
-
-Fields that do not apply may be omitted when allowed by the corresponding template.
-
-## Registers
-
-The documentation repository should maintain registers for controlled artifacts.
+The identifier must follow `ORBIT-STD-002`.
 
 Examples:
 
 ```text
-docs/registers/adr-register.md
-docs/registers/requirement-register.md
-docs/registers/test-register.md
-docs/registers/interface-register.md
+req-obc-0001-watchdog-supervision.md
+test-adcs-0003-wheel-speed-stability.md
+exp-com-0001-radio-range-evaluation.md
+if-obc-eps-0001-i2c-interface.md
+part-str-0004-lower-corner-bracket.md
+risk-sys-0001-component-unavailability.md
 ```
 
-A register should contain at least:
-
-| ID | Title | Subsystem | Status | Revision |
-| -- | ----- | --------- | ------ | -------- |
-
-Registers prevent duplicated identifiers and provide a central index of existing records.
-
-## Traceability
-
-Artifacts should reference related records whenever relevant.
+The filename identifier should be lowercase even though the identifier inside the document is uppercase.
 
 Example:
 
 ```text
-REQ-OBC-0004
-    ├── ADR-OBC-0002
-    ├── TEST-OBC-0007
-    ├── orbit-obc#18
-    └── REPORT-OBC-0001
+Filename:
+adr-obc-0001-select-rust.md
+
+Document ID:
+ADR-OBC-0001
 ```
 
-This should allow a reader to answer:
+## Orbit Lab standards
 
-* Why was this implemented?
-* Which requirement requested it?
-* Which decision selected the approach?
-* Which test verified it?
-* Where is the supporting evidence?
+Standards must follow:
+
+```text
+orbit-std-number-short-title.md
+```
+
+Examples:
+
+```text
+orbit-std-001-documentation-standard.md
+orbit-std-002-identification-standard.md
+orbit-std-003-file-naming-standard.md
+orbit-std-004-revision-control.md
+orbit-std-005-readme-standard.md
+```
+
+## Templates
+
+Template filenames should describe the artifact they create.
+
+Format:
+
+```text
+artifact-name-template.md
+```
+
+Examples:
+
+```text
+adr-template.md
+requirement-template.md
+verification-test-template.md
+experiment-template.md
+interface-template.md
+engineering-log-template.md
+```
+
+Template filenames do not receive artifact identifiers because templates are not engineering records.
+
+## Index files
+
+A directory documented by MkDocs should normally contain:
+
+```text
+index.md
+```
+
+The `index.md` file introduces the section and links to its relevant contents.
+
+Examples:
+
+```text
+docs/standards/index.md
+docs/templates/index.md
+docs/guides/index.md
+```
+
+Avoid names such as:
+
+```text
+standards-home.md
+templates-main.md
+folder-description.md
+```
+
+## Directory names
+
+Directory names should use lowercase kebab-case.
+
+Examples:
+
+```text
+development-log/
+ground-station/
+flight-software/
+hardware-in-the-loop/
+test-evidence/
+```
+
+Avoid:
+
+```text
+DevelopmentLog/
+ground_station/
+Flight Software/
+HILFiles/
+```
+
+Short and widely recognized subsystem names may be used when their meaning is defined by `ORBIT-STD-002`.
+
+Examples:
+
+```text
+obc/
+adcs/
+eps/
+com/
+```
+
+## Source code files
+
+Source code filenames should follow the conventions of their language and ecosystem.
+
+Examples:
+
+```text
+Rust:
+reaction_wheel.rs
+fault_manager.rs
+
+Python:
+telemetry_decoder.py
+risk_analysis.py
+
+C:
+watchdog_supervisor.c
+watchdog_supervisor.h
+```
+
+This standard does not override language-specific naming conventions.
+
+## CAD and mechanical files
+
+Mechanical files must include:
+
+* part or assembly identifier;
+* revision;
+* short descriptive title;
+* file extension.
+
+Format:
+
+```text
+identifier-rev-x-short-title.extension
+```
+
+Examples:
+
+```text
+part-str-0004-rev-a-lower-corner-bracket.step
+part-str-0004-rev-a-lower-corner-bracket.stl
+part-str-0004-rev-a-lower-corner-bracket.pdf
+assy-adcs-0001-rev-b-reaction-wheel.step
+```
+
+The same revision must be used across equivalent exports generated from the same source model.
+
+Example:
+
+```text
+part-str-0004-rev-b-lower-corner-bracket.step
+part-str-0004-rev-b-lower-corner-bracket.stl
+part-str-0004-rev-b-lower-corner-bracket.pdf
+```
+
+Do not use:
+
+```text
+corner-final.step
+corner-fixed.stl
+corner-new-final-v3.step
+```
+
+## Electronic design files
+
+PCB and schematic outputs should include the board identifier and revision.
+
+Examples:
+
+```text
+pcb-obc-0001-rev-a-main-board.kicad_pcb
+pcb-obc-0001-rev-a-main-board.kicad_sch
+pcb-obc-0001-rev-a-gerbers.zip
+pcb-obc-0001-rev-a-bom.csv
+pcb-obc-0001-rev-a-pick-and-place.csv
+```
+
+Project-specific source files may follow the conventions required by the EDA tool, but exported files must remain identifiable.
+
+## Experiment data
+
+Experiment files must include:
+
+* date;
+* experiment identifier;
+* short description;
+* optional run number.
+
+Recommended format:
+
+```text
+yyyy-mm-dd-experiment-id-description-run-number.extension
+```
+
+Examples:
+
+```text
+2026-07-29-exp-adcs-0001-wheel-speed-run-01.csv
+2026-07-29-exp-adcs-0001-wheel-speed-run-02.csv
+2026-07-29-exp-com-0002-radio-range-run-01.json
+```
+
+The run number may be omitted when only one run exists.
+
+## Test evidence
+
+Test evidence must include:
+
+* date;
+* test identifier;
+* evidence description.
+
+Format:
+
+```text
+yyyy-mm-dd-test-id-description.extension
+```
+
+Examples:
+
+```text
+2026-07-29-test-obc-0001-first-boot-serial.log
+2026-07-29-test-obc-0001-power-cycle-video.mp4
+2026-07-29-test-adcs-0003-speed-response.csv
+2026-07-29-test-eps-0002-current-measurement.png
+```
+
+## Engineering logs
+
+Engineering log filenames must follow:
+
+```text
+log-subsystem-yyyy-mm-dd-short-title.md
+```
+
+Examples:
+
+```text
+log-obc-2026-07-29-first-uart-bring-up.md
+log-adcs-2026-07-30-wheel-balancing.md
+log-str-2026-08-02-corner-bracket-print.md
+```
+
+When multiple logs exist for the same subsystem and date, add a sequence:
+
+```text
+log-obc-2026-07-29-01-uart-configuration.md
+log-obc-2026-07-29-02-timer-interrupt.md
+```
+
+## Reports
+
+Reports must follow the controlled artifact format:
+
+```text
+report-subsystem-number-short-title.md
+```
+
+Examples:
+
+```text
+report-obc-0001-watchdog-verification.md
+report-adcs-0002-reaction-wheel-analysis.md
+report-sys-0001-prototype-integration.md
+```
+
+Exported report files should preserve the same basename:
+
+```text
+report-adcs-0002-reaction-wheel-analysis.md
+report-adcs-0002-reaction-wheel-analysis.pdf
+```
+
+## Images and diagrams
+
+Images should describe their contents and, when applicable, reference the related artifact.
+
+Examples:
+
+```text
+obc-system-architecture.svg
+adcs-control-loop.svg
+if-obc-eps-0001-pinout.png
+part-str-0004-rev-a-dimensions.png
+test-obc-0001-reset-waveform.png
+```
+
+Avoid generic names:
+
+```text
+image1.png
+screenshot.png
+diagram-final.png
+photo-new.jpg
+```
+
+## Dates
+
+Dates in filenames must use ISO 8601 format:
+
+```text
+YYYY-MM-DD
+```
+
+Example:
+
+```text
+2026-07-29
+```
+
+Do not use:
+
+```text
+29-07-2026
+07-29-2026
+29-july-2026
+```
+
+## Sequence numbers
+
+Artifact sequence numbers must use four digits:
+
+```text
+0001
+0002
+0003
+```
+
+Do not switch between:
+
+```text
+1
+01
+001
+0001
+```
+
+The four-digit format keeps filenames naturally ordered and provides enough capacity for long-term development.
+
+## File extensions
+
+Use lowercase file extensions.
+
+Prefer:
+
+```text
+.md
+.csv
+.json
+.yaml
+.png
+.svg
+.step
+.stl
+.pdf
+```
+
+Avoid:
+
+```text
+.MD
+.CSV
+.PNG
+.STEP
+```
+
+## Renaming files
+
+Published files should not be renamed without a clear reason because renaming may break:
+
+* documentation links;
+* references from issues;
+* external links;
+* MkDocs navigation;
+* traceability records.
+
+When renaming is necessary:
+
+1. update all internal links;
+2. update `mkdocs.yml`;
+3. update related registers;
+4. search the repository for the old path;
+5. validate with `mkdocs build --strict`;
+6. explain the reason in the pull request.
+
+## Prohibited naming patterns
+
+The following patterns should not be used:
+
+```text
+final
+final-final
+latest
+new
+old
+copy
+fixed
+correct
+version2
+test123
+document
+untitled
+```
+
+Revision and status information must be managed according to `ORBIT-STD-004`, not through informal filename suffixes.
+
+## Examples
+
+### Decision
+
+```text
+adr-obc-0001-select-main-controller.md
+```
+
+### Requirement
+
+```text
+req-com-0004-telemetry-transmission-rate.md
+```
+
+### Verification test
+
+```text
+test-com-0007-telemetry-rate-verification.md
+```
+
+### Experiment
+
+```text
+exp-adcs-0003-flywheel-inertia-evaluation.md
+```
+
+### Interface
+
+```text
+if-obc-com-0001-uart-radio-interface.md
+```
+
+### Mechanical part
+
+```text
+part-str-0012-rev-b-upper-panel.step
+```
+
+### Test evidence
+
+```text
+2026-07-29-test-com-0007-telemetry-capture.csv
+```
+
+## Core principle
+
+> A filename should identify the artifact before the file is opened.
