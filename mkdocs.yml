@@ -60,9 +60,8 @@ nav:
       - Readme Standard: standards/orbit-std-005-readme-standard.md
 
   - Guides:
-      - guides/index.md
-      - Artifact Types: guides/artifact-types.md
-      - Documentation Workflow: guides/documentation-workflow.md
+      - Overview: guides/index.md
+      - Engineering Artifact Types: guides/engineering-artifact-types.md
 
   - Registers:
       - registers/index.md
