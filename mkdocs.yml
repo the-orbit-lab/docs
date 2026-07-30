@@ -52,10 +52,12 @@ nav:
   - Home: index.md
 
   - Standards:
-      - standards/index.md
+      - Overview: standards/index.md
       - Documentation Standard: standards/orbit-std-001-documentation-standard.md
-      - Identification Standard: standards/orbit-std-002-readme-standard.md
+      - Identification Standard: standards/orbit-std-002-identification-standard.md
       - File Naming Standard: standards/orbit-std-003-file-naming-standard.md
+      - Revision Control Standard: standards/orbit-std-004-revision-control.md
+      - Readme Standard: standards/orbit-std-005-readme-standard.md
 
   - Guides:
       - guides/index.md

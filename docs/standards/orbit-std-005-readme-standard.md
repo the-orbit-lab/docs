@@ -1,4 +1,4 @@
-# ORBIT-STD-002 — README Standard
+# ORBIT-STD-005 — README Standard
 
 ## Purpose
 
@@ -25,10 +25,6 @@ Write one or two sentences explaining what the project does and its role inside 
 ```md
 Orbit Tools is a Rust toolkit for orbital, communication and mission analysis used by the Orbit Lab CubeSat testbed.
 ```
-
-### Purpose
-
-Explain the problem solved by the project and its main responsibility.
 
 ### Status
 
