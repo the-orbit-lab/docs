@@ -39,4 +39,4 @@ Standards define the rules that documentation must follow.
 
 Templates provide reusable structures for creating individual engineering records such as decisions, requirements, tests, experiments and interfaces.
 
-See the [Engineering Templates](../templates/index.md) (doesn't exist yet) section to create a new artifact.
+See the [Engineering Templates](../engineering-templates/index.md) section to create a new artifact.
