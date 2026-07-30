@@ -23,7 +23,7 @@ The documentation records the requirements, decisions, interfaces, experiments, 
 
 The published documentation is available at:
 
-**https://orbit-lab.github.io/docs/**
+**https://the-orbit-lab.github.io/docs/**
 
 ## Local development
 
