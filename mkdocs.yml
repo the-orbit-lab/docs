@@ -54,7 +54,7 @@ nav:
   - Standards:
       - standards/index.md
       - Documentation Standard: standards/orbit-std-001-documentation-standard.md
-      - Identification Standard: standards/orbit-std-002-identification-standard.md
+      - Identification Standard: standards/orbit-std-002-readme-standard.md
       - File Naming Standard: standards/orbit-std-003-file-naming-standard.md
 
   - Guides:
