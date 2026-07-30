@@ -11,9 +11,7 @@ components and development history.
 
 - [Documentation Standard](standards/orbit-std-001-documentation-standard.md)
 - [Identification Standard](standards/orbit-std-002-identification-standard.md)
-- [Artifact Types](guides/artifact-types.md)
-- [Documentation Workflow](guides/documentation-workflow.md)
-- [Templates](templates/index.md)
+- [Templates](engineering-templates/index.md)
 - [Document Register](registers/document-register.md)
 
 ## Artifact quick reference

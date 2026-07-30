@@ -1,10 +1,10 @@
 site_name: Orbit Lab Documentation
 site_description: Official engineering documentation for Orbit Lab
 site_author: Orbit Lab
-site_url: https://orbit-lab.github.io/docs/
+site_url: https://the-orbit-lab.github.io/docs/
 
-repo_name: orbit-lab/docs
-repo_url: https://github.com/orbit-lab/docs
+repo_name: the-orbit-lab/docs
+repo_url: https://github.com/the-orbit-lab/docs
 edit_uri: edit/main/docs/
 
 theme:
@@ -67,11 +67,11 @@ nav:
       - registers/index.md
       - Document Register: registers/document-register.md
 
-  - Templates:
-      - templates/index.md
-      - ADR: templates/adr-template.md
-      - Requirement: templates/requirement-template.md
-      - Test: templates/test-template.md
-      - Experiment: templates/experiment-template.md
-      - Interface: templates/interface-template.md
-      - Part: templates/part-template.md
+  - Engineering Templates:
+      - Overview: engineering-templates/index.md
+      - ADR: engineering-templates/adr-template.md
+      - Requirement: engineering-templates/requirement-template.md
+      - Verification Test: engineering-templates/verification-test-template.md
+      - Experiment: engineering-templates/experiment-template.md
+      - Interface: engineering-templates/interface-template.md
+      - Engineering Log Template: engineering-templates/engineering-log-template.md
